@@ -16,7 +16,7 @@ height = 26.0
 
 [node name="Piso1" type="StaticBody2D" parent="."]
 position = Vector2( 99, 448 )
-scale = Vector2( 2, 1 )
+scale = Vector2( 3, 1 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -99,9 +99,58 @@ position = Vector2( 513, 658 )
 shape = SubResource( 2 )
 
 [node name="Meta" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
 position = Vector2( 127, 112 )
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Meta"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 149.0
+margin_top = 308.0
+margin_right = 276.0
+margin_bottom = 323.0
+rect_scale = Vector2( 2.12908, 2.34782 )
+size_flags_stretch_ratio = 0.0
+meta_underlined = false
+tab_size = 5
+text = "A y D para moverse"
+fit_content_height = true
+__meta__ = {
+"_editor_description_": "A y D para moverse"
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 461.0
+margin_top = 357.0
+margin_right = 548.0
+margin_bottom = 372.0
+rect_scale = Vector2( 2.08686, 2.26314 )
+size_flags_stretch_ratio = 0.0
+meta_underlined = false
+tab_size = 5
+text = "W para saltar"
+fit_content_height = true
+__meta__ = {
+"_editor_description_": "A y D para moverse"
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+margin_left = 184.0
+margin_top = 49.0
+margin_right = 289.0
+margin_bottom = 79.0
+rect_scale = Vector2( 1.91667, 2.33333 )
+size_flags_stretch_ratio = 0.0
+meta_underlined = false
+tab_size = 5
+text = "Llega a la salida!
+	<==	<=="
+fit_content_height = true
+__meta__ = {
+"_editor_description_": "A y D para moverse"
+}
