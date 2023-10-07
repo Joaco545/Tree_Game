@@ -1,54 +1,76 @@
-extends Area2D
+extends KinematicBody2D
 signal hit
 
-# Declare member variables here. Examples:
-export var speed = 400 # How fast the player will move (pixels/sec).
-export var jump_force = 400
-var screen_size # Size of the game window.
-var collider_size = Vector2.ZERO
+const UP = Vector2(0,-1)
+const GRAVITY = 5
+const MAX_SPEED = 200
+const ACCELERATION = 50
+const JUMP_HEIGHT = -250
 
+var velocity = Vector2.ZERO
+# Uso de poder
+export var delay_disparo = 1.0
+var poder_restante = 0
+var timer_disparo = 0.0
+var puedo_disparar = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	screen_size = get_viewport_rect().size
-	collider_size = $CollisionShape2D.shape.extents
-	print(collider_size)
+	pass
 
 # Llamar para inicializar al jugador
-func start(pos):
-	position = pos
+func start(pos_inic, poder_inic):
+	position = pos_inic
+	poder_restante = poder_inic
+	timer_disparo = delay_disparo
+	puedo_disparar = true
 	show()
 	$CollisionShape2D.disabled = false
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var velocity = Vector2.ZERO
+func _physics_process(delta):
+	velocity.y += GRAVITY
+	var me_muevo = false
 	
+	# Manejo inputs y prendo el flag de movimiento
+	# Flip para animacion aca?
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		velocity.x = min(velocity.x + ACCELERATION, MAX_SPEED)
+		me_muevo = true
+	elif Input.is_action_pressed("move_left"):
+		velocity.x = min(velocity.x + ACCELERATION, -MAX_SPEED)
+		me_muevo = true
 	
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
+	# Si no puedo disparar, reduzco timer y veo si ya puedo disparar
+	if puedo_disparar == false:
+		timer_disparo -= delta
+		if (timer_disparo <= 0):
+			timer_disparo = delay_disparo
+			puedo_disparar = true
+	# Si puedo disparar, y apreto disparar
+	elif Input.is_action_pressed("fire"):
+		# Codgo de disparo
+		print("Disparo!!")
+		puedo_disparar = false
+		# Disparo projectil, con convertir = (poder > 0)
+		pass
 	
-	if Input.is_action_pressed("move_right"):
-		velocity.y = 1
-	
-	# Si me muevo
-	if velocity.length() > 0:
-		velocity.x *= speed
-		$AnimatedSprite.play()
+	# Veo si estoy en el piso para poder saltar y ver si aplico frenado
+	if is_on_floor():
+		
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = JUMP_HEIGHT
+			
+		if me_muevo == false:
+			velocity.x = lerp(velocity.x, 0, 0.2)
 	else:
-		$AnimatedSprite.stop()
+		# Aca puedo poner animaciones de salto o caida
+		pass
 	
-	
-	
-	# Aplicando el movimiento y haciendo que no se pase de la pantalla
-	position.x += velocity.x * delta
-	position.x = clamp(position.x, collider_size.x, screen_size.x-collider_size.x)
-	position.y = clamp(position.y, collider_size.y, screen_size.y-collider_size.y)
-
+	# Aplico velocidad
+	velocity = move_and_slide(velocity, UP)
 
 
 func _on_Player_body_entered(body):

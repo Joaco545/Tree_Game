@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Piso_Test.tscn" type="PackedScene" id=2]
 
 [node name="Test Scene" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 107, 238 )
+
+[node name="Nivel" type="Node" parent="."]
+
+[node name="Piso_Test" parent="Nivel" instance=ExtResource( 2 )]
+position = Vector2( 162, 332 )
+
+[node name="Piso_Test2" parent="Nivel" instance=ExtResource( 2 )]
+position = Vector2( 571, 251 )
