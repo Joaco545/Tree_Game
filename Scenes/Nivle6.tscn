@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/FloorTileset.tres" type="TileSet" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 50.0
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 762, 44.5 )
+
+[node name="Nivle6" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 458761, 2, 0, 458762, 0, 0, 458763, 536870914, 0, 458767, 2, 0, 458768, 536870914, 0, 458772, 2, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 536870914, 0, 524298, 5, 0, 589825, 2, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 536870914, 0, 851990, 2, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 851995, 0, 0, 851996, 0, 0, 851997, 0, 0, 851998, 0, 0, 851999, 536870914, 0, 917510, 2, 0, 917511, 0, 0, 917512, 536870912, 0, 917513, 536870912, 0, 917514, 536870912, 0, 917515, 536870912, 0, 917516, 536870914, 0, 917522, 2, 0, 917523, 536870914, 0, 917527, 3, 0, 917528, 1, 0, 917529, 1, 0, 917530, 1, 0, 917531, 1, 0, 917532, 1, 0, 917533, 1, 0, 917534, 536870915, 0, 983064, 4, 0, 983065, 536870915, 0, 983067, 3, 0, 983068, 1, 0, 983069, 536870916, 0, 1048590, 2, 0, 1048591, 0, 0, 1048592, 536870914, 0, 1048604, 536870917, 0 )
+
+[node name="Meta" type="Area2D" parent="."]
+position = Vector2( 806, 290 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
+position = Vector2( 127, 112 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Meta"]
+
+[node name="Fallzone" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fallzone"]
+position = Vector2( 513, 658 )
+shape = SubResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 569.0
+margin_top = 405.0
+margin_right = 697.0
+margin_bottom = 433.0
+rect_pivot_offset = Vector2( -398, -169 )
+text = "Enemigo aca"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+margin_left = 70.0
+margin_top = 261.0
+margin_right = 198.0
+margin_bottom = 289.0
+rect_pivot_offset = Vector2( -398, -169 )
+text = "Fruta x 2 aca"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+margin_left = 197.0
+margin_top = 414.0
+margin_right = 325.0
+margin_bottom = 442.0
+rect_pivot_offset = Vector2( -398, -169 )
+text = "Fruta aca"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 303.0
+margin_top = 413.0
+margin_right = 431.0
+margin_bottom = 441.0
+rect_pivot_offset = Vector2( -398, -169 )
+text = "Enemigo aca"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+margin_left = 299.0
+margin_top = 196.0
+margin_right = 427.0
+margin_bottom = 224.0
+rect_pivot_offset = Vector2( -398, -169 )
+text = "Enemigo aca"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+margin_left = 471.0
+margin_top = 197.0
+margin_right = 599.0
+margin_bottom = 225.0
+rect_pivot_offset = Vector2( -398, -169 )
+text = "Enemigo aca"
