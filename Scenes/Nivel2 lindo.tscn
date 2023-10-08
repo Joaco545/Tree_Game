@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Nuevos Sprites/Arbol/tile_0136.png" type="Texture" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://Sprites/kenney_pixel-platformer (carpeta original de sprites)/Tiles/tile_0001.png" type="Texture" id=32]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Sprites/Nuevos Sprites/Fondo/TilesetFondo.tres" type="TileSet" id=34]
+[ext_resource path="res://Scenes/Fallzone.gd" type="Script" id=35]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 18, 18, 0, 18, 0, 0, 18, 0 )
@@ -670,6 +671,13 @@ points = PoolVector2Array( 0, 0, 18, 0, 18, 18, 0, 18 )
 } ]
 30/z_index = 0
 
+[sub_resource type="CapsuleShape2D" id=30]
+radius = 50.0
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 762, 44.5 )
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -698,3 +706,30 @@ collision_mask = 5
 tile_set = ExtResource( 34 )
 cell_size = Vector2( 24, 24 )
 format = 1
+
+[node name="Meta" type="Area2D" parent="."]
+position = Vector2( 2319, 181 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
+position = Vector2( 127, 112 )
+shape = SubResource( 30 )
+
+[node name="Sprite" type="Sprite" parent="Meta"]
+
+[node name="Fallzone" type="Area2D" parent="."]
+position = Vector2( -579, 23 )
+scale = Vector2( 2, 1 )
+script = ExtResource( 35 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fallzone"]
+position = Vector2( 513, 658 )
+shape = SubResource( 31 )
+
+[connection signal="area_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_area_entered"]
+[connection signal="body_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_body_entered"]
