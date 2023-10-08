@@ -12,12 +12,17 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 28, 60 )
+extents = Vector2( 14, 30 )
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 6
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "Temp"
 
@@ -25,4 +30,4 @@ animation = "Temp"
 shape = SubResource( 2 )
 
 [node name="PowerSpawn" type="Position2D" parent="."]
-position = Vector2( 35, 0 )
+position = Vector2( 18, 0 )

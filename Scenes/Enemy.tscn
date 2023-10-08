@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Piso_TestZone.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Mob/EnemyController.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Temp",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 1 )
+animation = "Temp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="LimitCheck" type="RayCast2D" parent="."]
+position = Vector2( -15, 0 )
+enabled = true
+cast_to = Vector2( 0, 15 )
+collision_mask = 2

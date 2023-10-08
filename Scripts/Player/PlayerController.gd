@@ -49,13 +49,6 @@ func _physics_process(delta):
 		if (timer_disparo <= 0):
 			timer_disparo = delay_disparo
 			puedo_disparar = true
-	# Si puedo disparar, y apreto disparar
-	elif Input.is_action_pressed("fire"):
-		# Codgo de disparo
-		print("Disparo!!")
-		puedo_disparar = false
-		# Disparo projectil, con convertir = (poder > 0)
-		pass
 	
 	# Veo si estoy en el piso para poder saltar y ver si aplico frenado
 	if is_on_floor():
@@ -65,6 +58,14 @@ func _physics_process(delta):
 			
 		if me_muevo == false:
 			velocity.x = lerp(velocity.x, 0, 0.2)
+			
+		# Si puedo disparar, apreto disparar, y estoy en el piso
+		if puedo_disparar and Input.is_action_pressed("fire"):
+			# Codgo de disparo
+			print("Disparo!!")
+			puedo_disparar = false
+			# Disparo projectil, con convertir = (poder > 0)
+			pass
 	else:
 		# Aca puedo poner animaciones de salto o caida
 		pass
