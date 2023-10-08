@@ -107,7 +107,8 @@ func _physics_process(delta):
 	
 	# Reviso colisiones a ver si un enemigo me toco
 	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision.collider.name.begins_with("Enemy"):
-			#
+		var collision = get_slide_collision(i).collider
+		if collision.name.begins_with("Manzana"):
+			poder_restante += 1
+			collision.queue_free()
 			print("Enemigo!")

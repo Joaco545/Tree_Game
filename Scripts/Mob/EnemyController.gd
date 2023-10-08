@@ -39,6 +39,9 @@ func _physics_process(delta):
 			# Game over code
 			collided_obj.position = Vector2(0,23)
 			pass
+		
+		$EnemyCollider.disabled = is_tree
+		$TreeCollider.disabled = !is_tree
 
 func PlayAnimation(name):
 	$AnimatedSprite.play(name)
