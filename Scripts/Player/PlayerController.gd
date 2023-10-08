@@ -6,6 +6,7 @@ const GRAVITY = 5
 const MAX_SPEED = 200
 const ACCELERATION = 50
 const JUMP_HEIGHT = -250
+const JUMP_FRAME = 2
 
 onready var animacion = $AnimatedSprite
 var velocity = Vector2.ZERO
@@ -14,6 +15,7 @@ export var delay_disparo = 1.0
 var poder_restante = 0
 var timer_disparo = 0.0
 var puedo_disparar = true
+var jumping = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,8 +49,19 @@ func _physics_process(delta):
 		velocity.x = min(velocity.x + ACCELERATION, -MAX_SPEED)
 		me_muevo = true
 		animacion.flip_h = true
+	
+	
+	if jumping:
+		animacion.playing = false
+		animacion.frame = JUMP_FRAME
+	if me_muevo:
+		animacion.playing = true
 	else:
-		animacion.flip_h = false
+		animacion.playing = false
+		animacion.frame = 0
+	
+		
+		
 	
 	# Si no puedo disparar, reduzco timer y veo si ya puedo disparar
 	if puedo_disparar == false:
@@ -62,6 +75,10 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_HEIGHT
+			jumping = true
+		else:
+			jumping = false
+
 			
 		if me_muevo == false:
 			velocity.x = lerp(velocity.x, 0, 0.2)
