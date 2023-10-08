@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Viejos Sprites/FloorTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Fallzone.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Manzana.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 50.0
@@ -81,6 +82,9 @@ position = Vector2( 897, 202 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 663, 202 )
+
+[node name="Manzana" parent="." instance=ExtResource( 5 )]
+position = Vector2( 474, 101 )
 
 [connection signal="area_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_area_entered"]
 [connection signal="body_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_body_entered"]
