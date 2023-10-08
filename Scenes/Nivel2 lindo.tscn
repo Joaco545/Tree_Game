@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Nuevos Sprites/Arbol/tile_0136.png" type="Texture" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Sprites/kenney_pixel-platformer (carpeta original de sprites)/Tiles/tile_0005.png" type="Texture" id=31]
 [ext_resource path="res://Sprites/kenney_pixel-platformer (carpeta original de sprites)/Tiles/tile_0001.png" type="Texture" id=32]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Sprites/Nuevos Sprites/Fondo/TilesetFondo.tres" type="TileSet" id=34]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 18, 18, 0, 18, 0, 0, 18, 0 )
@@ -677,6 +678,8 @@ tile_set = SubResource( 23 )
 cell_size = Vector2( 18, 18 )
 cell_quadrant_size = 8
 show_collision = true
+collision_layer = 15
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 327698, 8, 0, 327699, 9, 0, 327700, 10, 0, 327704, 8, 0, 327705, 9, 0, 327706, 10, 0, 327718, 6, 0, 327719, 6, 0, 393234, 12, 0, 393235, 13, 0, 393236, 14, 0, 393240, 12, 0, 393241, 13, 0, 393242, 14, 0, 393254, 6, 0, 393255, 6, 0, 458770, 16, 0, 458771, 20, 0, 458772, 18, 0, 458776, 16, 0, 458777, 17, 0, 458778, 18, 0, 458790, 6, 0, 458791, 6, 0, 524307, 23, 0, 524313, 23, 0, 524319, 1, 0, 524320, 2, 0, 524321, 2, 0, 524322, 3, 0, 524326, 6, 0, 524327, 6, 0, 589843, 23, 0, 589849, 19, 0, 589862, 6, 0, 589863, 6, 0, 655379, 23, 0, 655385, 23, 0, 655398, 6, 0, 655399, 6, 0, 720902, 1, 0, 720903, 2, 0, 720904, 2, 0, 720905, 2, 0, 720906, 2, 0, 720907, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0, 720911, 2, 0, 720912, 2, 0, 720913, 2, 0, 720914, 2, 0, 720915, 2, 0, 720916, 2, 0, 720917, 2, 0, 720918, 2, 0, 720919, 2, 0, 720920, 2, 0, 720921, 2, 0, 720922, 2, 0, 720923, 2, 0, 720924, 2, 0, 720925, 2, 0, 720926, 2, 0, 720927, 2, 0, 720928, 2, 0, 720929, 2, 0, 720930, 2, 0, 720931, 2, 0, 720932, 2, 0, 720933, 2, 0, 720934, 2, 0, 720935, 2, 0, 720936, 2, 0, 720937, 2, 0, 720938, 2, 0, 720939, 2, 0, 720940, 2, 0, 720941, 2, 0, 720942, 2, 0, 720943, 2, 0, 720944, 2, 0, 720945, 2, 0, 720946, 2, 0, 720947, 2, 0, 720948, 2, 0, 720949, 2, 0, 720950, 2, 0, 720951, 2, 0, 720952, 2, 0, 720953, 2, 0, 720954, 2, 0, 720955, 2, 0, 720956, 2, 0, 720957, 2, 0, 720958, 2, 0, 720959, 2, 0, 720960, 2, 0, 720961, 2, 0, 720962, 2, 0, 720963, 2, 0, 720964, 2, 0, 720965, 2, 0, 720966, 2, 0, 720967, 2, 0, 720968, 2, 0, 720969, 2, 0, 720970, 2, 0, 720971, 2, 0, 720972, 2, 0, 720973, 2, 0, 720974, 2, 0, 720975, 2, 0, 720976, 2, 0, 720977, 2, 0, 1638449, 536870912, 0 )
 
@@ -687,6 +690,11 @@ __meta__ = {
 }
 
 [node name="Enemy" parent="." instance=ExtResource( 33 )]
-position = Vector2( 1274, 381 )
+position = Vector2( 1211, 258 )
 collision_layer = 2
 collision_mask = 5
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource( 34 )
+cell_size = Vector2( 24, 24 )
+format = 1

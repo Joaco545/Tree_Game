@@ -22,6 +22,7 @@ func _physics_process(delta):
 	if !ground_ray.is_colliding():
 		# Invierto escala y movimiento
 		moving_left = !moving_left
+		
 		scale.x = -scale.x
 	if !is_tree:
 		if moving_left:
