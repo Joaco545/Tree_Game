@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Piso_Test.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Manzana.tscn" type="PackedScene" id=4]
 
 [node name="Test Scene" type="Node"]
 
@@ -21,7 +22,13 @@ position = Vector2( 527, 486 )
 position = Vector2( 833, 391 )
 
 [node name="Piso_Test4" parent="Nivel" instance=ExtResource( 2 )]
-position = Vector2( 365, 295 )
+position = Vector2( 1211, 215 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 848, 361 )
+position = Vector2( 848, 355 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1197, 178 )
+
+[node name="Manzana" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1014, 132 )
