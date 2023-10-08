@@ -6,11 +6,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "arbol",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "enemigo",
@@ -31,7 +26,8 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
-animation = "arbol"
+animation = "enemigo"
+playing = true
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="."]
 position = Vector2( -0.5, 4.5 )
