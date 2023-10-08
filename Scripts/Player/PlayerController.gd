@@ -5,7 +5,7 @@ const UP = Vector2(0,-1)
 const GRAVITY = 5
 const MAX_SPEED = 200
 const ACCELERATION = 50
-const JUMP_HEIGHT = -250
+const JUMP_HEIGHT = -275
 const JUMP_FRAME = 2
 
 onready var animacion = $AnimatedSprite
