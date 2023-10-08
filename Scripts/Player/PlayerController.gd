@@ -1,5 +1,4 @@
 extends KinematicBody2D
-signal hit
 
 const UP = Vector2(0,-1)
 const GRAVITY = 5
@@ -23,11 +22,11 @@ var looking_left = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	poder_restante = 1
 	pass
 
 # Llamar para inicializar al jugador
-func start(pos_inic, poder_inic):
-	
+func Start(pos_inic, poder_inic):
 	position = pos_inic
 	poder_restante = poder_inic
 	timer_disparo = delay_disparo
@@ -66,9 +65,6 @@ func _physics_process(delta):
 		animacion.playing = false
 		animacion.frame = 0
 	
-		
-		
-	
 	# Si no puedo disparar, reduzco timer y veo si ya puedo disparar
 	if puedo_disparar == false:
 		timer_disparo -= delta
@@ -84,19 +80,19 @@ func _physics_process(delta):
 			jumping = true
 		else:
 			jumping = false
-
-			
+		
 		if me_muevo == false:
 			velocity.x = lerp(velocity.x, 0, 0.2)
-			
+		
+		
 		# Si puedo disparar, apreto disparar, y estoy en el piso
 		if puedo_disparar and Input.is_action_pressed("fire"):
 			# Codgo de disparo
 			var disparo = bala_scene.instance()
 			if looking_left:
-				disparo.spawn(-1, $PowerSpawnL.global_position)
+				disparo.Spawn(-1, $PowerSpawnL.global_position, poder_restante>0, $".")
 			else:
-				disparo.spawn(1, $PowerSpawnR.global_position)
+				disparo.Spawn(1, $PowerSpawnR.global_position, poder_restante>0, $".")
 			
 			get_tree().root.get_child(0).add_child(disparo)
 			puedo_disparar = false
@@ -108,12 +104,10 @@ func _physics_process(delta):
 	
 	# Aplico velocidad
 	velocity = move_and_slide(velocity, UP)
-
-
-func _on_Player_body_entered(body):
-	# Animacion golpeado
-	$AnimatedSprite.play()
-	# Emitimos hit signal
-	emit_signal("hit")
-	# Desabilitamos las colisiones para que no trigeree otra vez
-	$CollisionShape2D.set_deferred("disabled", true)
+	
+	# Reviso colisiones a ver si un enemigo me toco
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.name.begins_with("Enemy"):
+			#
+			print("Enemigo!")
