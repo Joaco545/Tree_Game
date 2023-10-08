@@ -8,14 +8,18 @@ const ACCELERATION = 50
 const JUMP_HEIGHT = -275
 const JUMP_FRAME = 2
 
+onready var bala_scene = preload("res://Scenes/Bala.tscn")
+
 onready var animacion = $AnimatedSprite
 var velocity = Vector2.ZERO
 # Uso de poder
 export var delay_disparo = 1.0
 var poder_restante = 0
 var timer_disparo = 0.0
-var puedo_disparar = true
+var puedo_disparar = false
 var jumping = false
+
+var looking_left = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,10 +49,12 @@ func _physics_process(delta):
 		velocity.x = min(velocity.x + ACCELERATION, MAX_SPEED)
 		me_muevo = true
 		animacion.flip_h = false
+		looking_left = false
 	elif Input.is_action_pressed("move_left"):
 		velocity.x = min(velocity.x + ACCELERATION, -MAX_SPEED)
 		me_muevo = true
 		animacion.flip_h = true
+		looking_left = true
 	
 	
 	if jumping:
@@ -86,7 +92,13 @@ func _physics_process(delta):
 		# Si puedo disparar, apreto disparar, y estoy en el piso
 		if puedo_disparar and Input.is_action_pressed("fire"):
 			# Codgo de disparo
-			print("Disparo!!")
+			var disparo = bala_scene.instance()
+			if looking_left:
+				disparo.spawn(-1, $PowerSpawnL.global_position)
+			else:
+				disparo.spawn(1, $PowerSpawnR.global_position)
+			
+			get_tree().root.get_child(0).add_child(disparo)
 			puedo_disparar = false
 			# Disparo projectil, con convertir = (poder > 0)
 			pass

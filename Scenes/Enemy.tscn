@@ -26,8 +26,6 @@ animation = "Temp"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-
 [node name="LimitCheck" type="RayCast2D" parent="."]
 position = Vector2( -15, 0 )
 enabled = true
