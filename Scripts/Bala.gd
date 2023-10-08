@@ -38,12 +38,12 @@ func _physics_process(delta):
 			if collided_obj.is_tree:
 				print("desconvertir")
 				collided_obj.is_tree = false
-				#collided_obj.PlayAnimation("")
+				collided_obj.PlayAnimation("enemigo")
 			if !collided_obj.is_tree and especial:
 				print("Convertir!")
 				collided_obj.is_tree = true
 				player_ref.poder_restante -= 1
-				#collided_obj.PlayAnimation("")
+				collided_obj.PlayAnimation("arbol")
 	
 	# Si colisione, me elimino despues de ver que era
 	if get_slide_count() > 0:
