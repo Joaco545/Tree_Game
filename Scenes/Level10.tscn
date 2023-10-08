@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/FloorTileset.tres" type="TileSet" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 50.0
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 762, 44.5 )
+
+[node name="Level10" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 917521, 2, 0, 917522, 536870912, 0, 917523, 536870912, 0, 917524, 536870914, 0 )
+
+[node name="Meta" type="Area2D" parent="."]
+position = Vector2( 806, 290 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
+position = Vector2( 127, 112 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Meta"]
+
+[node name="Fallzone" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fallzone"]
+position = Vector2( 513, 658 )
+shape = SubResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 569.0
+margin_top = 405.0
+margin_right = 697.0
+margin_bottom = 433.0
+rect_pivot_offset = Vector2( -398, -169 )
+text = "Enemigo aca"
