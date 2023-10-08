@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Piso_Test.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Manzana.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Viejos Sprites/FloorTileset.tres" type="TileSet" id=5]
 
 [node name="Test Scene" type="Node"]
 
@@ -21,14 +22,20 @@ position = Vector2( 527, 486 )
 [node name="Piso_Test3" parent="Nivel" instance=ExtResource( 2 )]
 position = Vector2( 833, 391 )
 
-[node name="Piso_Test4" parent="Nivel" instance=ExtResource( 2 )]
-position = Vector2( 1211, 215 )
-
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 848, 355 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1197, 178 )
+position = Vector2( 1164, 170 )
 
 [node name="Manzana" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1014, 132 )
+
+[node name="TileMap" type="TileMap" parent="."]
+rotation = -0.000381328
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 15
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 393250, 5, 0, 393251, 5, 0, 393252, 5, 0, 393253, 5, 0, 393254, 5, 0, 393255, 5, 0, 458786, 1, 0, 458787, 4, 0, 458788, 4, 0, 458789, 4, 0, 458790, 4, 0, 524323, 3, 0, 524324, 3, 0, 524325, 3, 0 )
