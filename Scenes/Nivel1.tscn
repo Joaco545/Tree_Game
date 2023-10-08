@@ -3,10 +3,7 @@
 [ext_resource path="res://Sprites/Viejos Sprites/FloorTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Fallzone.gd" type="Script" id=3]
-
-[sub_resource type="CapsuleShape2D" id=7]
-radius = 50.0
-height = 26.0
+[ext_resource path="res://Scenes/Meta.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 762, 44.5 )
@@ -21,20 +18,7 @@ collision_mask = 5
 format = 1
 tile_data = PoolIntArray( 327680, 2, 0, 327681, 5, 0, 327682, 5, 0, 327683, 5, 0, 327684, 5, 0, 327685, 5, 0, 327686, 5, 0, 327687, 5, 0, 327688, 5, 0, 327689, 5, 0, 327690, 5, 0, 327691, 5, 0, 327692, 5, 0, 327693, 536870914, 0, 393217, 0, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 536870912, 0, 393225, 1, 0, 393226, 4, 0, 393227, 4, 0, 393228, 536870913, 0, 458754, 1, 0, 458755, 4, 0, 458756, 4, 0, 458757, 4, 0, 458758, 536870913, 0, 458762, 1, 0, 458763, 536870913, 0, 458767, 2, 0, 458768, 5, 0, 458769, 5, 0, 458770, 5, 0, 458771, 5, 0, 458772, 536870914, 0, 524291, 0, 0, 524292, 4, 0, 524293, 536870912, 0, 589828, 3, 0, 589844, 2, 0, 589845, 5, 0, 589846, 5, 0, 589847, 536870914, 0, 786457, 2, 0, 786458, 536870917, 0, 786459, 536870917, 0, 786460, 536870917, 0, 786461, 536870917, 0, 786462, 536870914, 0, 851969, 2, 0, 851970, 536870917, 0, 851971, 536870917, 0, 851972, 536870914, 0, 983046, 2, 0, 983047, 536870917, 0, 983048, 536870917, 0, 983049, 536870917, 0, 983050, 536870917, 0, 983051, 536870917, 0, 983052, 536870917, 0, 983053, 5, 0, 983054, 536870917, 0, 983055, 536870917, 0, 983056, 536870917, 0, 983057, 536870917, 0, 983058, 536870917, 0, 983059, 536870917, 0, 983060, 536870917, 0, 983061, 536870917, 0, 983062, 536870914, 0, 1048585, 1, 0, 1048586, 536870916, 0, 1048587, 536870916, 0, 1048588, 536870913, 0, 1048590, 1, 0, 1048591, 536870916, 0, 1048592, 536870916, 0, 1048593, 536870916, 0, 1048594, 536870916, 0, 1048595, 536870913, 0, 1114122, 0, 0, 1114123, 536870912, 0, 1114127, 0, 0, 1114128, 536870916, 0, 1114129, 536870916, 0, 1114130, 536870912, 0, 1179664, 1, 0, 1179665, 536870913, 0 )
 
-[node name="Meta" type="Area2D" parent="."]
-position = Vector2( 10, 13 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
-position = Vector2( 127, 112 )
-shape = SubResource( 7 )
-
-[node name="Sprite" type="Sprite" parent="Meta"]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Meta"]
-playing = true
+[node name="Meta" parent="." instance=ExtResource( 4 )]
 
 [node name="Fallzone" type="Area2D" parent="."]
 position = Vector2( -579, 23 )
@@ -95,7 +79,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 88, 376 )
+position = Vector2( 285, 105 )
 
 [connection signal="area_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_area_entered"]
 [connection signal="body_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_body_entered"]

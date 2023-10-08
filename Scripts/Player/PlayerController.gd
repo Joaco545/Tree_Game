@@ -112,3 +112,7 @@ func _physics_process(delta):
 			poder_restante += 1
 			collision.queue_free()
 			print("Enemigo!")
+		if collision.name.begins_with("Meta"):
+			get_tree().change_scene("res://Scenes/SelectorNivel.tscn")
+			
+	

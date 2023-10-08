@@ -4,10 +4,7 @@
 [ext_resource path="res://Scenes/Fallzone.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 50.0
-height = 26.0
+[ext_resource path="res://Scenes/Meta.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 762, 44.5 )
@@ -21,18 +18,6 @@ collision_layer = 2
 collision_mask = 5
 format = 1
 tile_data = PoolIntArray( 196609, 2, 0, 196610, 5, 0, 196611, 536870914, 0, 196635, 2, 0, 196636, 5, 0, 196637, 5, 0, 196638, 5, 0, 196639, 536870914, 0, 262146, 536870915, 0, 262172, 1, 0, 262173, 4, 0, 262174, 536870913, 0, 327709, 536870915, 0, 393222, 2, 0, 393223, 5, 0, 393224, 5, 0, 393225, 5, 0, 393226, 5, 0, 393227, 536870914, 0, 393236, 2, 0, 393237, 5, 0, 393238, 5, 0, 393239, 5, 0, 393240, 5, 0, 393241, 5, 0, 393242, 5, 0, 393243, 536870914, 0, 458759, 1, 0, 458760, 4, 0, 458761, 536870913, 0, 524296, 536870915, 0, 589824, 2, 0, 589825, 5, 0, 589826, 5, 0, 589827, 5, 0, 589828, 536870914, 0, 589839, 2, 0, 589840, 536870914, 0, 589850, 2, 0, 589851, 5, 0, 589852, 5, 0, 589853, 536870914, 0, 917510, 2, 0, 917511, 5, 0, 917512, 5, 0, 917513, 5, 0, 917514, 5, 0, 917515, 5, 0, 917516, 536870914, 0, 917523, 2, 0, 917524, 5, 0, 917525, 5, 0, 917526, 5, 0, 917527, 5, 0, 917528, 5, 0, 917529, 536870914, 0, 983047, 1, 0, 983048, 536870916, 0, 983049, 536870916, 0, 983050, 536870913, 0, 1048584, 536870915, 0, 1114126, 2, 0, 1114127, 5, 0, 1114128, 5, 0, 1114129, 536870914, 0 )
-
-[node name="Meta" type="Area2D" parent="."]
-position = Vector2( 816, -33 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
-position = Vector2( 127, 112 )
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Meta"]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 250.0
@@ -119,6 +104,9 @@ position = Vector2( 290, 170 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 519, 509 )
+
+[node name="Meta" parent="." instance=ExtResource( 5 )]
+position = Vector2( 983, 87 )
 
 [connection signal="area_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_area_entered"]
 [connection signal="body_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_body_entered"]
