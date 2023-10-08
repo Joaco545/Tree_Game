@@ -55,7 +55,7 @@ Y convertirlos en arboles!"
 position = Vector2( 106, 276 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 641, 295 )
+position = Vector2( 626, 363 )
 
 [node name="Fallzone" type="Area2D" parent="."]
 position = Vector2( -579, 23 )

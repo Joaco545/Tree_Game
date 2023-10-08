@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Viejos Sprites/FloorTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Fallzone.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=8]
 radius = 50.0
@@ -72,6 +74,21 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fallzone"]
 position = Vector2( 513, 658 )
 shape = SubResource( 9 )
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 737, 458 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 326, 458 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 326, 458 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 962, 331 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 517, 442 )
 
 [connection signal="area_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_area_entered"]
 [connection signal="body_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_body_entered"]
