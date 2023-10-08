@@ -7,6 +7,7 @@ const MAX_SPEED = 200
 const ACCELERATION = 50
 const JUMP_HEIGHT = -250
 
+onready var animacion = $AnimatedSprite
 var velocity = Vector2.ZERO
 # Uso de poder
 export var delay_disparo = 1.0
@@ -20,12 +21,14 @@ func _ready():
 
 # Llamar para inicializar al jugador
 func start(pos_inic, poder_inic):
+	
 	position = pos_inic
 	poder_restante = poder_inic
 	timer_disparo = delay_disparo
 	puedo_disparar = true
 	show()
 	$CollisionShape2D.disabled = false
+	
 
 
 
@@ -39,9 +42,13 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		velocity.x = min(velocity.x + ACCELERATION, MAX_SPEED)
 		me_muevo = true
+		animacion.flip_h = false
 	elif Input.is_action_pressed("move_left"):
 		velocity.x = min(velocity.x + ACCELERATION, -MAX_SPEED)
 		me_muevo = true
+		animacion.flip_h = true
+	else:
+		animacion.flip_h = false
 	
 	# Si no puedo disparar, reduzco timer y veo si ya puedo disparar
 	if puedo_disparar == false:
