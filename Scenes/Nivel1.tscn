@@ -33,6 +33,9 @@ shape = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="Meta"]
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Meta"]
+playing = true
+
 [node name="Fallzone" type="Area2D" parent="."]
 position = Vector2( -579, 23 )
 scale = Vector2( 2, 1 )
