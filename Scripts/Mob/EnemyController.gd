@@ -38,7 +38,7 @@ func _physics_process(delta):
 		var collided_obj = get_slide_collision(i).collider
 		if collided_obj.name.begins_with("Player"):
 			# Game over code
-			collided_obj.position = Vector2(0,23)
+			collided_obj.position = Vector2(0,500)
 			pass
 		
 		$EnemyCollider.disabled = is_tree

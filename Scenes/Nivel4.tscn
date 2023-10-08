@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Viejos Sprites/FloorTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Fallzone.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Manzana.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=8]
 radius = 50.0
@@ -32,35 +35,6 @@ shape = SubResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="Meta"]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 296.0
-margin_top = 424.0
-margin_right = 378.0
-margin_bottom = 452.0
-rect_pivot_offset = Vector2( -398, -169 )
-text = "Enemigo aca"
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
-margin_left = 669.0
-margin_top = 415.0
-margin_right = 751.0
-margin_bottom = 443.0
-text = "Enemigo aca"
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="."]
-margin_left = 874.0
-margin_top = 313.0
-margin_right = 956.0
-margin_bottom = 341.0
-text = "Enemigo aca"
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="."]
-margin_left = 107.0
-margin_top = 299.0
-margin_right = 189.0
-margin_bottom = 327.0
-text = "Fruta x 2 aca"
-
 [node name="Fallzone" type="Area2D" parent="."]
 position = Vector2( -579, 23 )
 scale = Vector2( 2, 1 )
@@ -72,6 +46,35 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fallzone"]
 position = Vector2( 513, 658 )
 shape = SubResource( 9 )
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 737, 458 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 326, 458 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 326, 458 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 962, 331 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 517, 442 )
+
+[node name="Manzana" parent="." instance=ExtResource( 5 )]
+position = Vector2( 174, 333 )
+
+[node name="Manzana2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 85, 333 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 30.0
+margin_top = 226.0
+margin_right = 197.0
+margin_bottom = 291.0
+rect_scale = Vector2( 1.39797, 1.42116 )
+text = "Solo podes convertir a un enemigo a la vez, pero si agarraz un corazon podes hacerlo una vez mas!"
 
 [connection signal="area_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_area_entered"]
 [connection signal="body_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_body_entered"]
