@@ -7,6 +7,7 @@ const JUMP_HEIGHT = -250
 
 var velocity = Vector2.ZERO
 var moving_left = true
+var is_tree = false
 
 onready var ground_ray = $LimitCheck
 
@@ -22,13 +23,22 @@ func _physics_process(delta):
 		# Invierto escala y movimiento
 		moving_left = !moving_left
 		scale.x = -scale.x
-	
-	if moving_left:
-		velocity.x = -SPEED
+	if !is_tree:
+		if moving_left:
+			velocity.x = -SPEED
+		else:
+			velocity.x = SPEED
 	else:
-		velocity.x = SPEED
-	
+		velocity.x = 0
 	
 	velocity = move_and_slide(velocity, UP)
 	
-	pass
+	for i in get_slide_count():
+		var collided_obj = get_slide_collision(i).collider
+		if collided_obj.name.begins_with("Player"):
+			# Game over code
+			collided_obj.position = Vector2(0,23)
+			pass
+
+func PlayAnimation(name):
+	$AnimatedSprite.play(name)
