@@ -4,12 +4,10 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Manzana" type="Node2D"]
+[node name="Manzana" type="KinematicBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
