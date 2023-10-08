@@ -7,7 +7,7 @@
 [node name="Test Scene" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 107, 238 )
+position = Vector2( 106, 276 )
 
 [node name="Nivel" type="Node" parent="."]
 
@@ -24,4 +24,4 @@ position = Vector2( 833, 391 )
 position = Vector2( 365, 295 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 814, 357 )
+position = Vector2( 812, 301 )
