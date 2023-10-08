@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Viejos Sprites/FloorTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Fallzone.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 50.0
@@ -31,8 +32,9 @@ shape = SubResource( 7 )
 [node name="Sprite" type="Sprite" parent="Meta"]
 
 [node name="Fallzone" type="Area2D" parent="."]
-position = Vector2( -565, -9 )
+position = Vector2( -579, 23 )
 scale = Vector2( 2, 1 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -89,3 +91,6 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 88, 376 )
+
+[connection signal="area_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_area_entered"]
+[connection signal="body_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_body_entered"]
