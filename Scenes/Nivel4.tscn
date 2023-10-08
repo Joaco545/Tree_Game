@@ -1,13 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Viejos Sprites/FloorTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Fallzone.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=4]
-
-[sub_resource type="CapsuleShape2D" id=8]
-radius = 50.0
-height = 26.0
+[ext_resource path="res://Scenes/Manzana.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Meta.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 762, 44.5 )
@@ -21,47 +19,6 @@ collision_layer = 2
 collision_mask = 5
 format = 1
 tile_data = PoolIntArray( 393230, 2, 0, 393231, 536870917, 0, 393232, 536870917, 0, 393233, 536870917, 0, 393234, 536870917, 0, 393235, 536870917, 0, 393236, 536870917, 0, 393237, 536870917, 0, 393238, 536870917, 0, 393239, 536870917, 0, 393240, 536870914, 0, 458767, 1, 0, 458768, 536870916, 0, 458769, 536870916, 0, 458770, 536870916, 0, 458771, 536870916, 0, 458772, 536870913, 0, 524304, 1, 0, 524305, 536870916, 0, 524306, 536870916, 0, 524307, 536870913, 0, 720897, 2, 0, 720898, 536870917, 0, 720899, 536870917, 0, 720900, 536870917, 0, 720901, 536870917, 0, 720902, 536870914, 0, 720921, 2, 0, 720922, 536870917, 0, 720923, 536870917, 0, 720924, 536870917, 0, 720925, 536870917, 0, 720926, 536870914, 0, 983047, 2, 0, 983048, 536870917, 0, 983049, 536870917, 0, 983050, 536870917, 0, 983051, 536870914, 0, 983054, 2, 0, 983055, 536870917, 0, 983056, 536870917, 0, 983057, 536870914, 0, 983060, 2, 0, 983061, 536870917, 0, 983062, 536870917, 0, 983063, 536870917, 0, 983064, 536870914, 0 )
-
-[node name="Meta" type="Area2D" parent="."]
-position = Vector2( 449, 51 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
-position = Vector2( 127, 112 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Meta"]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 296.0
-margin_top = 424.0
-margin_right = 378.0
-margin_bottom = 452.0
-rect_pivot_offset = Vector2( -398, -169 )
-text = "Enemigo aca"
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
-margin_left = 669.0
-margin_top = 415.0
-margin_right = 751.0
-margin_bottom = 443.0
-text = "Enemigo aca"
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="."]
-margin_left = 874.0
-margin_top = 313.0
-margin_right = 956.0
-margin_bottom = 341.0
-text = "Enemigo aca"
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="."]
-margin_left = 107.0
-margin_top = 299.0
-margin_right = 189.0
-margin_bottom = 327.0
-text = "Fruta x 2 aca"
 
 [node name="Fallzone" type="Area2D" parent="."]
 position = Vector2( -579, 23 )
@@ -89,6 +46,23 @@ position = Vector2( 962, 331 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 517, 442 )
+
+[node name="Manzana" parent="." instance=ExtResource( 5 )]
+position = Vector2( 174, 333 )
+
+[node name="Manzana2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 85, 333 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 30.0
+margin_top = 226.0
+margin_right = 197.0
+margin_bottom = 291.0
+rect_scale = Vector2( 1.39797, 1.42116 )
+text = "Solo podes convertir a un enemigo a la vez, pero si agarraz un corazon podes hacerlo una vez mas!"
+
+[node name="Meta" parent="." instance=ExtResource( 6 )]
+position = Vector2( 905, 343 )
 
 [connection signal="area_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_area_entered"]
 [connection signal="body_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_body_entered"]

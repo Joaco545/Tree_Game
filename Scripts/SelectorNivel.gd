@@ -37,4 +37,4 @@ func _on_boton8_pressed():
 
 
 func _on_boton10_pressed():
-	get_tree().change_scene("res://Scenes/Nivel10.tscn")
+	get_tree().change_scene("res://Scenes/Nivel2 lindo.tscn")

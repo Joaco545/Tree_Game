@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Viejos Sprites/FloorTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Fallzone.gd" type="Script" id=2]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 50.0
-height = 26.0
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Manzana.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Meta.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 762, 44.5 )
@@ -15,20 +15,10 @@ extents = Vector2( 762, 44.5 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
+collision_layer = 2
+collision_mask = 5
 format = 1
 tile_data = PoolIntArray( 393241, 2, 0, 393242, 536870917, 0, 393243, 536870917, 0, 393244, 536870917, 0, 393245, 536870917, 0, 393246, 536870917, 0, 393247, 536870914, 0, 458780, 1, 0, 458781, 4, 0, 458782, 536870913, 0, 524317, 3, 0, 589824, 2, 0, 589825, 536870917, 0, 589826, 536870917, 0, 589827, 536870917, 0, 589828, 536870914, 0, 589833, 2, 0, 589834, 536870917, 0, 589835, 536870917, 0, 589836, 536870917, 0, 589837, 536870917, 0, 589838, 536870917, 0, 589839, 536870917, 0, 589840, 536870917, 0, 589841, 536870917, 0, 589842, 536870914, 0, 720915, 2, 0, 720916, 536870917, 0, 720917, 536870917, 0, 720918, 536870917, 0, 720919, 536870917, 0, 720920, 536870914, 0, 720923, 2, 0, 720924, 536870917, 0, 720925, 536870917, 0, 720926, 536870914, 0, 917506, 2, 0, 917507, 536870917, 0, 917508, 536870917, 0, 917509, 536870917, 0, 917510, 536870917, 0, 917511, 536870917, 0, 917512, 536870917, 0, 917513, 536870917, 0, 917514, 536870917, 0, 917515, 536870917, 0, 917516, 536870914, 0, 917519, 2, 0, 917520, 536870917, 0, 917521, 536870914, 0, 917524, 2, 0, 917525, 536870917, 0, 917526, 536870917, 0, 917527, 536870917, 0, 917528, 536870917, 0, 917529, 536870917, 0, 917530, 536870917, 0, 917531, 536870917, 0, 917532, 536870917, 0, 917533, 536870914, 0, 983056, 3, 0 )
-
-[node name="Meta" type="Area2D" parent="."]
-position = Vector2( 820, 59 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
-position = Vector2( 127, 112 )
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Meta"]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 730.0
@@ -89,6 +79,27 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fallzone"]
 position = Vector2( 513, 658 )
 shape = SubResource( 2 )
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 750, 425 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 316, 426 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 92, 266 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 939, 330 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 531, 415 )
+
+[node name="Manzana" parent="." instance=ExtResource( 5 )]
+position = Vector2( 447, 252 )
+
+[node name="Meta" parent="." instance=ExtResource( 6 )]
+position = Vector2( 998, 183 )
 
 [connection signal="area_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_area_entered"]
 [connection signal="body_entered" from="Fallzone" to="Fallzone" method="_on_Fallzone_body_entered"]
