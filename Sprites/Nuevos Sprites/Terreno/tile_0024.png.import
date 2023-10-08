@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player_Temp.png-97bfa9e8fd2aab4c27d8d8f7ec407c68.stex"
+path="res://.import/tile_0024.png-aa3a82369e8926b5e1d9bbf97064ee8d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player_Temp.png"
-dest_files=[ "res://.import/Player_Temp.png-97bfa9e8fd2aab4c27d8d8f7ec407c68.stex" ]
+source_file="res://Sprites/Nuevos Sprites/Terreno/tile_0024.png"
+dest_files=[ "res://.import/tile_0024.png-aa3a82369e8926b5e1d9bbf97064ee8d.stex" ]
 
 [params]
 

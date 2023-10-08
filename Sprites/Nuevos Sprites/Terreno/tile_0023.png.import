@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-frame-4.png-a3db743042670960b29e7442c55ba417.stex"
+path="res://.import/tile_0023.png-25d9a86e19d486a592bff5f859c0b5bf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/pixil-frame-4.png"
-dest_files=[ "res://.import/pixil-frame-4.png-a3db743042670960b29e7442c55ba417.stex" ]
+source_file="res://Sprites/Nuevos Sprites/Terreno/tile_0023.png"
+dest_files=[ "res://.import/tile_0023.png-25d9a86e19d486a592bff5f859c0b5bf.stex" ]
 
 [params]
 

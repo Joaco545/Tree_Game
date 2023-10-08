@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Piso_TestZone.png-b2a288c7b056a96970e85b7793a47c72.stex"
+path="res://.import/tile_0056.png-fd88354ce0c763de1a5d2012d7602580.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Piso_TestZone.png"
-dest_files=[ "res://.import/Piso_TestZone.png-b2a288c7b056a96970e85b7793a47c72.stex" ]
+source_file="res://Sprites/Nuevos Sprites/Arbol/tile_0056.png"
+dest_files=[ "res://.import/tile_0056.png-fd88354ce0c763de1a5d2012d7602580.stex" ]
 
 [params]
 
